@@ -13,12 +13,12 @@ const TagInput = ({ onAddTag }) => {
   };
 
   return (
-    <div className="ml-auto p-2  flex items-center gap-2 bg-neutral-400 rounded-lg">
+    <div className="ml-auto p-2  flex items-center gap-2 bg-neutral-500 rounded-lg">
       <input
         type="text"
         value={tagName}
         placeholder="Tag name"
-        className="bg-transparent text-xs text-black outline-none placeholder:text-neutral-800"
+        className="bg-transparent text-xs text-white placeholder:text-neutral-300 outline-none"
         onChange={(e) => {
           setTagName(e.target.value);
         }}

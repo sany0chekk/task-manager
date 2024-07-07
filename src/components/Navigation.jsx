@@ -5,34 +5,19 @@ import { IoIosSettings, IoMdHelpCircle } from "react-icons/io";
 
 const Navigation = () => {
   return (
-    <div className="flex items-center p-4 bg-neutral-700 rounded-md">
-      <Link to="/" className="font-semibold text-lg">
+    <div className="flex items-center gap-4 p-4 bg-neutral-700 rounded-md flex-col md:flex-row">
+      <Link to="/" className="font-semibold text-lg max-md:hidden">
         Task Manager
       </Link>
 
       <SearchTasks />
 
-      <nav className="flex items-center gap-5 ml-auto">
+      <nav className="flex items-center gap-5 md:ml-auto">
         {[
-          [
-            <>
-              <FaTasks /> Tasks
-            </>,
-            "/tasks",
-          ],
-          [
-            <>
-              <IoIosSettings /> Settings
-            </>,
-            "/settings",
-          ],
-          [
-            <>
-              <IoMdHelpCircle /> Help
-            </>,
-            "/help",
-          ],
-        ].map(([title, url], index) => {
+          [<FaTasks key="task-icon" />, "Task", "/tasks"],
+          [<IoIosSettings key="settings-icon" />, "Settings", "/settings"],
+          [<IoMdHelpCircle key="help-icon" />, "Help", "/help"],
+        ].map(([icon, title, url], index) => {
           return (
             <NavLink
               key={index}
@@ -43,7 +28,8 @@ const Navigation = () => {
                 }`
               }
             >
-              {title}
+              {icon}
+              <p className="hidden max-md:order-1 md:block">{title}</p>
             </NavLink>
           );
         })}
