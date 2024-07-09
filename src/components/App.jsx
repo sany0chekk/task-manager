@@ -4,6 +4,7 @@ import Navigation from "./Navigation";
 import { lazy, Suspense } from "react";
 
 const TasksPage = lazy(() => import("../pages/TasksPage"));
+const HelpPage = lazy(() => import("../pages/HelpPage"));
 
 const App = () => {
   return (
@@ -16,7 +17,7 @@ const App = () => {
             <Route path="/" element={<Navigate to="/tasks" replace />} />
             <Route path="/tasks" element={<TasksPage />} />
             <Route path="/settings" element="" />
-            <Route path="/help" element="" />
+            <Route path="/help" element={<HelpPage />} />
           </Routes>
         </Suspense>
       </div>

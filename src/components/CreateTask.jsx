@@ -72,7 +72,7 @@ const CreateTask = ({ onAddTask }) => {
           <input
             name="date"
             type="date"
-            className="text-xs text-black p-2 rounded-md"
+            className="text-xs p-2 rounded-md  bg-neutral-500 text-neutral-300"
             required
           />
         </div>
