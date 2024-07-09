@@ -42,7 +42,7 @@ const CreateTask = ({ onAddTask }) => {
 
   return (
     <div className="p-4 bg-neutral-600 rounded-md inline-block w-full">
-      <h2 className="font-semibold text-sm mb-2">Create New Card</h2>
+      <h2 className="font-semibold text-sm mb-2">Create new task:</h2>
       <form onSubmit={handleAddTask}>
         <textarea
           name="task"

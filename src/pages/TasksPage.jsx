@@ -28,6 +28,10 @@ const TasksPage = () => {
     );
   };
 
+  const handleDeleteTask = (taskId) => {
+    setTasks(tasks.filter((task) => task.id !== taskId));
+  };
+
   const completedTasks = tasks.filter((task) => task.completed).length;
   const completetPercetage =
     tasks.length > 0 ? (completedTasks / tasks.length) * 100 : 0;
@@ -38,11 +42,20 @@ const TasksPage = () => {
         <CreateTask onAddTask={handleAddTask} />
         <TaskProgress progress={completetPercetage} />
       </div>
-      <TaskList
-        tasks={tasks}
-        onToggleComplete={handleToggleComplete}
-        onUpdateTaskText={handleUpdateTaskText}
-      />
+      <div className="w-full">
+        {tasks.length > 0 ? (
+          <TaskList
+            tasks={tasks}
+            onToggleComplete={handleToggleComplete}
+            onUpdateTaskText={handleUpdateTaskText}
+            onDeleteTask={handleDeleteTask}
+          />
+        ) : (
+          <p className="font-light text-lg block tracking-wider text-center py-16">
+            Task list is empty!
+          </p>
+        )}
+      </div>
     </div>
   );
 };

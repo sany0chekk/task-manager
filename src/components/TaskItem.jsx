@@ -1,9 +1,14 @@
 import { IoTimerOutline } from "react-icons/io5";
-import { MdEdit } from "react-icons/md";
+import { MdDeleteForever, MdEdit } from "react-icons/md";
 import { useState } from "react";
 import { IoMdDoneAll } from "react-icons/io";
 
-const TaskItem = ({ task, onToggleComplete, onUpdateTaskText }) => {
+const TaskItem = ({
+  task,
+  onToggleComplete,
+  onUpdateTaskText,
+  onDeleteTask,
+}) => {
   const [editedText, setEditedText] = useState("");
   const [isEditting, setIsEdditing] = useState(false);
 
@@ -54,9 +59,20 @@ const TaskItem = ({ task, onToggleComplete, onUpdateTaskText }) => {
               <IoMdDoneAll size="20" />
             </button>
           ) : (
-            <button className="ml-auto hover:opacity-50" onClick={handleEdit}>
-              <MdEdit size="20" />
-            </button>
+            <div className="flex items-center gap-3 ml-auto">
+              <button
+                className="transition hover:opacity-50"
+                onClick={handleEdit}
+              >
+                <MdEdit size="20" />
+              </button>
+              <button
+                className="transition hover:opacity-50"
+                onClick={() => onDeleteTask(task.id)}
+              >
+                <MdDeleteForever size="20" />
+              </button>
+            </div>
           )}
         </div>
         {isEditting ? (

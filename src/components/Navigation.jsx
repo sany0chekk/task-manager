@@ -14,7 +14,7 @@ const Navigation = () => {
 
       <nav className="flex items-center gap-5 md:ml-auto">
         {[
-          [<FaTasks key="task-icon" />, "Task", "/"],
+          [<FaTasks key="task-icon" />, "Tasks", "/"],
           [<IoIosSettings key="settings-icon" />, "Settings", "/settings"],
           [<IoMdHelpCircle key="help-icon" />, "Help", "/help"],
         ].map(([icon, title, url], index) => {
