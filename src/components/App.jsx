@@ -1,10 +1,9 @@
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 import Navigation from "./Navigation";
 import { lazy, Suspense } from "react";
 
 const TasksPage = lazy(() => import("../pages/TasksPage"));
-const HelpPage = lazy(() => import("../pages/HelpPage"));
 
 const App = () => {
   return (
@@ -14,10 +13,7 @@ const App = () => {
       <div className="bg-neutral-700 rounded-md p-4 h-full md:overflow-y-auto flex-grow">
         <Suspense fallback="Loading...">
           <Routes>
-            <Route path="/" element={<Navigate to="/tasks" replace />} />
-            <Route path="/tasks" element={<TasksPage />} />
-            <Route path="/settings" element="" />
-            <Route path="/help" element={<HelpPage />} />
+            <Route path="/" element={<TasksPage />} />
           </Routes>
         </Suspense>
       </div>
